@@ -47,7 +47,7 @@ module "lambda_function_with_vpc" {
 
   create_role                   = true
   attach_cloudwatch_logs_policy = true
-  attach_vpc_policy             = true
+  attach_vpc_policy             = length(var.subnet_ids) > 0 && length(var.security_group_ids) > 0 ? true : false
 
   custom_policy_arns = {
     s3_access      = "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
