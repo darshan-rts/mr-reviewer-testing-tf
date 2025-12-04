@@ -101,7 +101,7 @@ resource "aws_lambda_permission" "this" {
   action        = each.value.action
   function_name = aws_lambda_function.this.function_name
   principal     = each.value.principal
-  source_arn    = lookup(each.value, "source_arn", null)
+  source_arn    = each.value.source_arn
 }
 
 resource "aws_cloudwatch_log_group" "lambda" {
