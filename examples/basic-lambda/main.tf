@@ -18,7 +18,7 @@ module "lambda_function" {
 
   function_name = "example-lambda-function"
   handler       = "index.handler"
-  runtime       = "python3.9"
+  runtime       = "python3.12"
   timeout       = 30
   memory_size   = 256
 

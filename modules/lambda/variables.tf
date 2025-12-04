@@ -12,7 +12,7 @@ variable "handler" {
 variable "runtime" {
   description = "Runtime environment for the Lambda function"
   type        = string
-  default     = "python3.9"
+  default     = "python3.12"
 }
 
 variable "timeout" {

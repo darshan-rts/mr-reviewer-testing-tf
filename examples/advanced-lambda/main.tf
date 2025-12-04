@@ -18,7 +18,7 @@ module "lambda_function_with_vpc" {
 
   function_name = "advanced-lambda-function"
   handler       = "index.handler"
-  runtime       = "python3.9"
+  runtime       = "python3.12"
   timeout       = 60
   memory_size   = 512
 

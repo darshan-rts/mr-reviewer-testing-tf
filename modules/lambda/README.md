@@ -26,7 +26,7 @@ module "lambda" {
 
   function_name = "my-lambda-function"
   handler       = "index.handler"
-  runtime       = "python3.9"
+  runtime       = "python3.12"
   filename      = "lambda_function.zip"
 
   environment_variables = {
@@ -66,7 +66,7 @@ module "lambda" {
 
   function_name = "my-vpc-lambda"
   handler       = "index.handler"
-  runtime       = "python3.9"
+  runtime       = "python3.12"
   filename      = "lambda_function.zip"
 
   vpc_config = {
@@ -86,7 +86,7 @@ module "lambda" {
 
   function_name = "my-lambda-function"
   handler       = "index.handler"
-  runtime       = "python3.9"
+  runtime       = "python3.12"
   filename      = "lambda_function.zip"
 
   create_role = true
@@ -106,7 +106,7 @@ module "lambda" {
 
   function_name = "my-lambda-function"
   handler       = "index.handler"
-  runtime       = "python3.9"
+  runtime       = "python3.12"
   filename      = "lambda_function.zip"
 
   lambda_permissions = {
@@ -127,7 +127,7 @@ module "lambda" {
 
   function_name   = "my-lambda-function"
   handler         = "index.handler"
-  runtime         = "python3.9"
+  runtime         = "python3.12"
   filename        = "lambda_function.zip"
 
   create_role     = false
