@@ -46,7 +46,7 @@ variable "s3_key" {
 }
 
 variable "s3_object_version" {
-  description = "Object version containing the function's deployment package"
+  description = "S3 object version containing the function's deployment package"
   type        = string
   default     = null
 }

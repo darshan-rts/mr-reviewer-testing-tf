@@ -160,7 +160,7 @@ module "lambda" {
 | filename | Path to the function's deployment package within the local filesystem | `string` | `null` | no |
 | s3_bucket | S3 bucket location containing the function's deployment package | `string` | `null` | no |
 | s3_key | S3 key of an object containing the function's deployment package | `string` | `null` | no |
-| s3_object_version | Object version containing the function's deployment package | `string` | `null` | no |
+| s3_object_version | S3 object version containing the function's deployment package | `string` | `null` | no |
 | description | Description of what your Lambda Function does | `string` | `""` | no |
 | layers | List of Lambda Layer Version ARNs to attach to your Lambda Function | `list(string)` | `[]` | no |
 | environment_variables | Map of environment variables that are accessible from function code during execution | `map(string)` | `{}` | no |
