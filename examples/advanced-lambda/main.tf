@@ -32,14 +32,14 @@ module "lambda_function_with_vpc" {
     DB_HOST     = "database.example.com"
   }
 
-  vpc_config = {
+  vpc_config = length(var.subnet_ids) > 0 && length(var.security_group_ids) > 0 ? {
     subnet_ids         = var.subnet_ids
     security_group_ids = var.security_group_ids
-  }
+  } : null
 
-  dead_letter_config = {
+  dead_letter_config = var.dlq_arn != "" ? {
     target_arn = var.dlq_arn
-  }
+  } : null
 
   tracing_config = {
     mode = "Active"
@@ -54,18 +54,22 @@ module "lambda_function_with_vpc" {
     dynamodb_access = "arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess"
   }
 
-  lambda_permissions = {
-    allow_api_gateway = {
-      action     = "lambda:InvokeFunction"
-      principal  = "apigateway.amazonaws.com"
-      source_arn = var.api_gateway_source_arn
-    }
-    allow_eventbridge = {
-      action     = "lambda:InvokeFunction"
-      principal  = "events.amazonaws.com"
-      source_arn = var.eventbridge_rule_arn
-    }
-  }
+  lambda_permissions = merge(
+    var.api_gateway_source_arn != "" ? {
+      allow_api_gateway = {
+        action     = "lambda:InvokeFunction"
+        principal  = "apigateway.amazonaws.com"
+        source_arn = var.api_gateway_source_arn
+      }
+    } : {},
+    var.eventbridge_rule_arn != "" ? {
+      allow_eventbridge = {
+        action     = "lambda:InvokeFunction"
+        principal  = "events.amazonaws.com"
+        source_arn = var.eventbridge_rule_arn
+      }
+    } : {}
+  )
 
   layers = var.lambda_layers
 

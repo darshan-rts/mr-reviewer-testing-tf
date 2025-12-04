@@ -16,8 +16,11 @@ resource "aws_lambda_function" "this" {
   description = var.description
   layers      = var.layers
 
-  environment {
-    variables = var.environment_variables
+  dynamic "environment" {
+    for_each = length(var.environment_variables) > 0 ? [var.environment_variables] : []
+    content {
+      variables = environment.value
+    }
   }
 
   dynamic "vpc_config" {
