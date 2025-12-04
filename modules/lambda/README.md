@@ -154,7 +154,7 @@ module "lambda" {
 |------|-------------|------|---------|:--------:|
 | function_name | Unique name for the Lambda Function | `string` | n/a | yes |
 | handler | Function entrypoint in your code | `string` | `"index.handler"` | no |
-| runtime | Runtime environment for the Lambda function | `string` | `"python3.9"` | no |
+| runtime | Runtime environment for the Lambda function | `string` | `"python3.12"` | no |
 | timeout | Amount of time your Lambda Function has to run in seconds | `number` | `3` | no |
 | memory_size | Amount of memory in MB your Lambda Function can use at runtime | `number` | `128` | no |
 | filename | Path to the function's deployment package within the local filesystem | `string` | `null` | no |

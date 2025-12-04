@@ -30,7 +30,7 @@ terraform apply
 
 ## What This Example Creates
 
-- AWS Lambda function with Python 3.9 runtime
+- AWS Lambda function with Python 3.12 runtime
 - IAM role with CloudWatch Logs permissions
 - CloudWatch Log Group with 7-day retention
 
